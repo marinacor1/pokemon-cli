@@ -35,11 +35,10 @@ class PokemonService
   end
 
   def pokemon_for_type(type)
-    pokemons = 0..778
+    pokemons = 0..721
     response = pokemons.select do |pokemon|
       info = pokemon_information(pokemon)
-      if info["types"].map {|type| type["name"]}.include? (type)
+      info["types"].map {|type| type["name"]}.include? (type)
         end
-
   end
 end

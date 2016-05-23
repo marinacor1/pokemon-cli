@@ -23,4 +23,23 @@ class PokemonService
     response = pokemon_information(pokemon)
     response["evolutions"].map {|info| info["to"]}.first
   end
+
+  def evolutions(pokemon)
+    response = pokemon_information(pokemon)
+    response["evolutions"].map {|info| info["to"]}.uniq
+  end
+
+  def types(pokemon)
+    response = pokemon_information(pokemon)
+    response["types"].map {|type| type["name"]}
+  end
+
+  def pokemon_for_type(type)
+    pokemons = 0..778
+    response = pokemons.select do |pokemon|
+      info = pokemon_information(pokemon)
+      if info["types"].map {|type| type["name"]}.include? (type)
+        end
+
+  end
 end
